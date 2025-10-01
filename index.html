@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>TirthOnGo — Quick Info</title>
   <meta name="description" content="TirthOnGo — temple itineraries, local guides, easy bookings" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js for pie chart -->
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -51,6 +52,9 @@
       border-radius: 8px;
       font-weight: bold;
     }
+    ul li {
+      margin-bottom: 8px;
+    }
     footer {
       text-align: center;
       font-size: 0.9rem;
@@ -66,6 +70,19 @@
       <p>Spiritual travel made simple — temple itineraries, local guides, easy bookings</p>
     </header>
 
+    <!-- Introduction Section -->
+    <div class="card">
+      <h2>Introduction</h2>
+      <p>
+        <strong>TirthOnGo</strong> is a smart travel platform designed to transform spiritual and cultural tourism in India.
+        It connects travelers, local guides, and administrators on a single, easy-to-use app, making religious and heritage travel more organized, transparent, and impactful.
+      </p>
+      <p>
+        The platform simplifies discovering, booking, and experiencing temples, festivals, forts, and heritage sites
+        while empowering local communities and boosting regional economies.
+      </p>
+    </div>
+
     <div class="card">
       <h2>Why TirthOnGo?</h2>
       <p>Religious tourism in India is booming. TirthOnGo helps travelers plan and book temple-focused trips with verified local guides, day-wise itineraries, and simple payment options.</p>
@@ -79,12 +96,44 @@
         <li>Flexible bookings with EMI and coupons</li>
         <li>Festival & heritage trip packages</li>
       </ul>
-      <a class="cta" href="https://your-app-or-link.com" target="_blank">Explore More</a>
+      <a class="cta" href="https://www.canva.com/design/DAG0DOqrpwE/E_gdcjo7qBVapUjGeXEJxQ/edit?ui=eyJEIjp7IlQiOnsiQSI6IlBCeWo4cXN4Q1Y2dENSS0oifX19" target="_blank">Explore More</a>
+    </div>
+
+    <!-- Tiers Section -->
+    <div class="card">
+      <h2>Platform Tiers</h2>
+      <ul>
+        <li><strong>Basic Tier – Free / Limited access:</strong> Access to basic itineraries, general info, standard offers. Target: casual users or first-time travelers.</li>
+        <li><strong>Advanced Tier – Paid / Premium:</strong> Access to personalized itineraries, exclusive offers, AI travel assistant, offline maps. Target: frequent travelers or spiritual enthusiasts.</li>
+        <li><strong>Enterprise Tier – Business / B2B:</strong> Access to bulk bookings, guide partnerships, analytics, advertisements, promotions for local businesses. Target: travel agencies, local guides, temple authorities, cultural organizations.</li>
+      </ul>
+      <canvas id="tierChart" width="40" height="40"></canvas>
     </div>
 
     <footer>
       © 2025 TirthOnGo. Deployed with GitHub Pages.
     </footer>
   </div>
-</body>
-</html>
+
+  <!-- Chart.js Pie Chart -->
+  <script>
+    const ctx = document.getElementById('tierChart').getContext('2d');
+    const tierChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['Basic', 'Advanced', 'Enterprise'],
+        datasets: [{
+          label: 'TirthOnGo User Distribution',
+          data: [50, 35, 15], // Example percentages
+          backgroundColor: ['#0b6', '#f9a825', '#ff6f61'],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom'
+          }
+        }
+      }
